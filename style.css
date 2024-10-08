@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&family=Merriweather:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Playfair+Display:wght@400;700&family=Lobster&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+
+/*---------------HEADER------------*/
+
+nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.6em;
+
+    z-index: 99;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    animation: alterar-titulo linear both;  /*  Animacion nav  */
+    animation-timeline: scroll(root);
+    animation-range: 0 200px;
+}
+
+@keyframes alterar-titulo{          
+    to{
+        background-color: black;
+    }
+}
+
+nav a{
+    color: aliceblue;
+}
+
+.home{
+    font-family: 'Lobster', cursive;
+    font-size: 2em;
+}
+
+.links{
+    display: flex;
+    align-items: center;
+    margin-top: 1em;
+    justify-content: space-between;
+}
+
+.links a{
+    font-size: 1.4em;
+    font-family: 'Roboto', sans-serif;
+    margin: 0 .4em;
+}
+
+.baner{
+    height: 40vh; 
+    
+    background-image: url(./img/photo-1727709350469-5fde91621-mountain.avif);   /*  imagen baner */
+    background-size: cover;
+}
+
+.cover{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(    /*    Difuminado       */
+        to bottom,
+        rgba(255, 255, 255, 0) 50%,    
+        rgba(255, 255, 255, .3) 70%,    
+        rgba(255, 255, 255, .8) 90%,    
+        rgba(255, 255, 255, 1) 95%   
+    );
+}
+    
+
+
+/*---------------CONTENIDO----------------*/
+
+
+.articulos-contenedor{
+    display: flex;
+    flex-direction: column;
+}
+
+.articulo{
+    width: 92vw;
+    padding: 6vh 4vh 0 4vh ;
+}
+
+.derecha{
+    display: flex;
+    flex-direction: column;
+    align-self: self-end;
+}
+
+h2{
+    font-size: 2em;
+    margin-bottom: .6em;
+    margin-left: .4em;
+    
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.04em;
+}
+
+p{
+    font-size: 1.1em;
+    line-height: 1.7;
+    font-family: 'Merriweather', serif;
+}
+
+footer{
+    height: 8vh;
+    margin-top: 6vh;
+    background-color: rgb(184, 184, 184);
+}
+
+
+/*--------------    ANIMACION    -------------*/
+
+.animated-element{
+    transition: 0.4s ease-in-out;
+    transform: translate(2vh, 0);
+    opacity: 0;
+}
+.animated-element.derecha{
+    transform: translate(-2vh, 0);
+}
+
+.animated {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.animated.derecha {
+    transform: translate(0, 0);
+    opacity: 1;
+}
+
+
+
+@media screen and (min-width:834px){    /*   Responsive     */
+    nav{
+        flex-direction: row;
+    }
+
+    .links{
+        margin-top: 0;
+        justify-content: space-between;
+    }
+
+    .baner{
+        height: 80vh; 
+    }
+
+    .articulo{
+        width: 74vw;
+        padding: 16vh 10vh 0 10vh ;
+    }
+
+    p{
+        font-size: 1.4em;
+        line-height: 1.7;
+    }
+
+    .animated-element{
+        transform: translate(30vh, 0);
+    }
+    
+    .animated-element.derecha{
+        transform: translate(-30vh, 0);
+    }
+    
+    .animated {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    
+    .animated.derecha {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
